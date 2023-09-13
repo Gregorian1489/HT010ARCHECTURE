@@ -26,7 +26,7 @@
 >* Спроектировать слой  API Gateway (mobile, web), сформировать REST запросы: GET, POST, PUT, DELETE (https://swagger.io).
 
 > Выполнение:
-![openapi.json](openapi.json.png)
+[Json файл](https://github.com/Gregorian1489/HT010ARCHECTURE/blob/main/openapi.json)
 
 >*  Определить состав информации для кеширования на уровне приложения пользователя, API Gateway, уровня бизнес-логики и уровня репозитория. Список.
 
