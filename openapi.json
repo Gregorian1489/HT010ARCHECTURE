@@ -1,0 +1,271 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Облачный сервис для работы с роботом - пылесосом",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/api/v1",
+      "description": "Dev server"
+    }
+  ],
+  "paths": {
+    "/robots": {
+      "get": {
+        "summary": "Метод получения списка роботов - пылесосов",
+        "tags": [
+          "Robots"
+        ],
+        "operationId": "getAllRobots",
+        "responses": {
+          "200": {
+            "description": "Успешный ответ со списком роботов",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Robots"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Всё остальное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Создание списка роботов",
+        "tags": [
+          "Robots"
+        ],
+        "operationId": "createCloud",
+        "requestBody": {
+          "content": {
+            "adplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Robots"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешеный ответ со списком",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Robots"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Всё остальное",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Метод удаления робота",
+        "tags": [
+          "Robots"
+        ],
+        "operationId": "deleteRobot",
+        "responses": {
+          "200": {
+            "description": "Успешеный ответ со списком",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Robot"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Всё остальное",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Метод получения списка пользователей",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "getAllUsers",
+        "responses": {
+          "200": {
+            "description": "Успешный ответ со списком пользователей",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Создание списка польователей",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "createUsers",
+        "requestBody": {
+          "content": {
+            "adplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешеный ответ со списком",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Всё остальное",
+            "content": {
+              "adplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Robot": {
+        "type": "object",
+        "required": [
+          "idRobot",
+          "nameRobot",
+          "fabricName",
+          "resource",
+          "versionPO"
+        ],
+        "properties": {
+          "idRobot": {
+            "type": "integer",
+            "example": 123678
+          },
+          "nameRobot": {
+            "type": "string",
+            "example": "Засасыватель1",
+            "description": "Имя пылесоса"
+          },
+          "fabricName": {
+            "type": "string",
+            "example": "3123nkngui14g1u4ib",
+            "description": "Заводской номер"
+          },
+          "resource": {
+            "type": "integer",
+            "example": 52,
+            "description": "Выработанный ресурс, в часах"
+          },
+          "versionPO": {
+            "type": "string",
+            "example": "v1.01 beta"
+          }
+        }
+      },
+      "Robots": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Robot"
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": [
+          "idUser",
+          "login",
+          "hashPassword",
+          "phone",
+          "email"
+        ],
+        "properties": {
+          "idUser": {
+            "type": "integer",
+            "example": 456654,
+            "description": "User ID"
+          },
+          "login": {
+            "type": "string",
+            "example": "Tom"
+          },
+          "hashPassword": {
+            "type": "string",
+            "example": "fkqjr23ol532klrn32lo5r23l5rn23lk"
+          },
+          "phone": {
+            "type": "string",
+            "example": "8-900-000-00-00"
+          },
+          "email": {
+            "type": "string",
+            "example": "Tom@mail.ru"
+          }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/User"
+        }
+      },
+      "Errors": {
+        "type": "object",
+        "required": [
+          "error_code",
+          "error_message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
