@@ -46,3 +46,15 @@
 
 > Выполнение:
 ![uml1.png](uml1.png)
+
+>**Seminar 12.  Принципы тестирования приложений**
+
+>**Домашнее задание:**  Предложить и разработать E2E и UAT - тест:
+
+> Выполнение:
+>
+> E2E:
+[E2E](https://github.com/Gregorian1489/HT010ARCHECTURE/blob/main/e2e.docx)
+> UAT:
+[UAT](https://github.com/Gregorian1489/HT010ARCHECTURE/blob/main/uat.docx)
+
