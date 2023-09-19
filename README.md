@@ -57,5 +57,5 @@
 [E2E](https://github.com/Gregorian1489/HT010ARCHECTURE/blob/main/e2e.pdf)
 > UAT:
 [UAT](https://github.com/Gregorian1489/HT010ARCHECTURE/blob/main/uat.pdf)
-> ![e2e.png](e2e.pdf)
+> ![e2e.pdf](e2e.pdf)
 
